@@ -1,1 +1,135 @@
 # For-Marvin-
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>hi</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom, #ffd6e8, #fff0f6);
+  text-align: center;
+  overflow: hidden;
+}
+
+h1 {
+  margin-top: 120px;
+  color: #ff4d88;
+}
+
+.small-text {
+  font-size: 12px;
+  color: #ff99bb;
+  margin-bottom: 30px;
+}
+
+button {
+  padding: 15px 25px;
+  font-size: 18px;
+  margin: 10px;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+#yes {
+  background-color: #ff66a3;
+  color: white;
+}
+
+#no {
+  background-color: #ffb3cc;
+  color: white;
+  position: relative;
+}
+
+#message {
+  margin-top: 20px;
+  color: #ff4d88;
+  font-size: 14px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 10px;
+  right: 15px;
+  font-size: 12px;
+  color: #ff99bb;
+}
+
+/* Herzen */
+.heart {
+  position: absolute;
+  color: #ff99bb;
+  animation: float 6s infinite;
+}
+
+@keyframes float {
+  0% {transform: translateY(100vh);}
+  100% {transform: translateY(-10vh);}
+}
+</style>
+</head>
+
+<body>
+
+<h1>Willst du es nochmal versuchen? </h1>
+<div class="small-text">lies den brief, bevor du beantwortest</div>
+
+<button id="yes" onclick="yesClicked()">Ja </button>
+<button id="no" onclick="noClicked()">Nein </button>
+
+<div id="message"></div>
+
+<div class="footer">deine Kiara</div>
+
+<script>
+let yesSize = 18;
+let noSize = 18;
+let noClicks = 0;
+
+function yesClicked() {
+  document.body.innerHTML = `
+    <h1 style="margin-top:120px;color:#ff4d88;">Ich liebe dich ❤️</h1>
+    <img src="https://media.tenor.com/0AVbKGY_MxMAAAAC/cute-cat.gif" width="200">
+  `;
+}
+
+function noClicked() {
+  noClicks++;
+
+  if (noClicks < 5) {
+    yesSize += 8;
+    noSize -= 2;
+
+    document.getElementById("yes").style.fontSize = yesSize + "px";
+    document.getElementById("no").style.fontSize = noSize + "px";
+
+    document.getElementById("message").innerText = "bitte? ";
+
+    // Button bewegt sich
+    let x = Math.random() * 200 - 100;
+    let y = Math.random() * 200 - 100;
+    document.getElementById("no").style.transform = `translate(${x}px, ${y}px)`;
+
+  } else {
+    document.getElementById("message").innerText = "hm";
+  }
+}
+
+// Herzen generieren
+for (let i = 0; i < 15; i++) {
+  let heart = document.createElement("div");
+  heart.className = "heart";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+  heart.innerHTML = "💗";
+  document.body.appendChild(heart);
+}
+</script>
+
+</body>
+</html>
