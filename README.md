@@ -1,5 +1,4 @@
 # For-Marvin-
-<!DOCTYPE html>
 <html lang="de">
 <head>
 <meta charset="UTF-8">
@@ -94,7 +93,7 @@ let noClicks = 0;
 function yesClicked() {
   document.body.innerHTML = `
     <h1 style="margin-top:120px;color:#ff4d88;">Ich liebe dich ❤️</h1>
-    <img src="https://media.tenor.com/0AVbKGY_MxMAAAAC/cute-cat.gif" width="200">
+    
   `;
 }
 
