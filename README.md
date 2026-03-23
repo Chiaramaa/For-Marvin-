@@ -84,7 +84,7 @@ button {
 
 <div id="message"></div>
 
-<div class="footer">deine Kiara</div>
+<div class="footer">deine Chiara </div>
 
 <script>
 let yesSize = 18;
